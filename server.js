@@ -14,9 +14,7 @@ app.use(express.json());
 app.use(express.static("public")); // heroku will display static pages from public folder
 
 
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '/public/index.html')); // index page
-});
+
 
 app.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/notes.html'));// notes page
@@ -24,6 +22,10 @@ app.get('/notes', (req, res) => {
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/index.html')); // index
+});
+
+app.get('/api/notes', (req, res) => {
+    res.json(path.join(__dirname, '/public/index.html')); // index page
 });
 
 
