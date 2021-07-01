@@ -11,7 +11,11 @@ app.use(express.urlencoded({ extended: true}));
 // incoming JSON data
 app.use(express.json());
 
-app.use(express.static("public")); // heroku will display static pages
+app.use(express.static("public")); // heroku will display static pages from public folder
+
+app.get('/api/animals', (req, res) => {
+    res.send('Hello!');
+  });
 
 
 
