@@ -15,9 +15,19 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 
+// function for note creation used from zookpr and updated
+function createNote(body, newnoteArray) {
+  const note = body;
+  newnoteArray.push(note);
+  fs.writeFileSync(
+    path.join(__dirname, "./db/db.json"),
+    JSON.stringify({ notes: newnoteArray }, null, 2)
+  );
+
+  return note;
+};
 
 // routes
-
 app.get("/api/notes", (req, res) => {
   let results = notes;
   console.log(req.query);
@@ -33,6 +43,12 @@ app.get("/notes", (req, res) => {
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/index.html")); // index
+});
+
+
+app.post("/api/notes", (req, res) => {
+  const note = createNote(req.body, notes);
+  res.json(note);
 });
 
 //
