@@ -1,56 +1,30 @@
 {
   "notes": [
+    {},
     {
-      "title": "Test Title",
-      "text": "Test text"
+      "title": "edfga",
+      "text": "agaga",
+      "id": "2vw05ggskqmwpm81"
     },
     {
-      "notes": [
-        {
-          "title": "example",
-          "text": "see if this works"
-        }
-      ]
+      "title": "dr. dre",
+      "text": "2001",
+      "id": "2vw05ggskqmwq0lc"
     },
     {
-      "notes": [
-        {
-          "title": "Kanye West",
-          "text": "A Beautiful Dark Twisted Fantasy"
-        }
-      ]
+      "title": "dmb",
+      "text": "dmb band rules",
+      "id": "2vw05ggskqmwr4aj"
     },
     {
-      "notes": [
-        {
-          "title": "Kanye West",
-          "text": "A Beautiful Dark Twisted Fantasy"
-        }
-      ]
+      "title": "dishes",
+      "text": "Please do them now",
+      "id": "2vw05ggskqmwt9ey"
     },
     {
-      "notes": [
-        {
-          "title": "Pink Floyd",
-          "text": "Dark Side of the Moon"
-        }
-      ]
-    },
-    {
-      "title": "garg",
-      "text": "agagag"
-    },
-    {
-      "title": "Dr Dre",
-      "text": "2001"
-    },
-    {
-      "title": "dfadsf",
-      "text": "gaag"
-    },
-    {
-      "title": "Take out trash",
-      "text": "today please"
+      "title": "snoop dogg",
+      "text": "title",
+      "id": "2vw0598gkqmx3g81"
     }
   ]
 }

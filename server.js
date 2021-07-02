@@ -1,10 +1,12 @@
 const fs = require("fs");
 const path = require("path");
+const uniqid = require("uniqid"); // npm package to create id
 
 const express = require("express");
 const PORT = process.env.PORT || 3001;
 const app = express(); // initiate server
 const { notes } = require("./db/db.json");
+
 
 app.use(express.static("public"));
 
@@ -27,6 +29,8 @@ function createNote(body, newnoteArray) {
   return note;
 };
 
+
+
 // routes
 app.get("/api/notes", (req, res) => {
   let results = notes;
@@ -42,16 +46,17 @@ app.get("/notes", (req, res) => {
 
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "/public/index.html")); // index
+  res.sendFile(path.join(__dirname, "/public/index.html")); // index page
 });
 
-
+// POST route 
 app.post("/api/notes", (req, res) => {
+  req.body.id = uniqid(); // call id package for creation
   const note = createNote(req.body, notes);
   res.json(note);
 });
 
-//
+
 
 app.listen(3001, () => {
   console.log("API server now on port ${PORT}");
