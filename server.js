@@ -17,17 +17,28 @@ app.use(express.static("public")); // display static pages
 
 
 // routes
+
+
+
+
 app.get("/notes", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/notes.html")); // notes page
 });
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "/public/index.html")); // index
+app.get("/api/notes", (req, res) => {
+  fs.readFile(path.join(__dirname, "/db/db.json"),(err,data)=>{
+      res.json(data);
 });
 
-app.get("/api/notes", (req, res) => {
-    fs.readFile(path.join(__dirname, "/db/db.json"));
-    res.json(data);
+});
+
+
+
+
+
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "/public/index.html")); // index
 });
 
 //
