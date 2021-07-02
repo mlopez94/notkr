@@ -5,34 +5,33 @@ const express = require("express");
 const PORT = process.env.PORT || 3001;
 const app = express(); // initiate server
 
+
 // parse incoming string to array
 app.use(express.urlencoded({ extended: true }));
 
 // incoming JSON data
 app.use(express.json());
 
-app.use(express.static("public")); // heroku will display static pages from public folder
+app.use(express.static("public")); // display static pages
 
 
 
-
-app.get('/notes', (req, res) => {
-    res.sendFile(path.join(__dirname, '/public/notes.html'));// notes page
+// routes
+app.get("/notes", (req, res) => {
+  res.sendFile(path.join(__dirname, "/public/notes.html")); // notes page
 });
 
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '/public/index.html')); // index
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "/public/index.html")); // index
 });
 
-app.get('/api/notes', (req, res) => {
-    res.json(path.join(__dirname, '/public/index.html')); // index page
+app.get("/api/notes", (req, res) => {
+    fs.readFile(path.join(__dirname, "/db/db.json"));
+    res.json(data);
 });
 
-
-
-
+//
 
 app.listen(3001, () => {
-    console.log('API server now on port ${PORT}');
+  console.log("API server now on port ${PORT}");
 });
-
